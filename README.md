@@ -36,24 +36,24 @@ OneFlow ERP는 기업의 핵심 업무(사용자 관리, 프로젝트 관리, �
 🎯 주요 기능
 
 &nbsp;&nbsp;&nbsp;🔹 사용자 관리 (Authentication & Authorization)
-
+<br><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ JWT 기반 로그인 및 인증</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 관리자(Admin), 매니저(Manager), 직원(Employee) 역할(Role) 관리</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 사용자 CRUD (등록, 조회, 수정, 삭제)</p>
 <br><br>
 &nbsp;&nbsp;&nbsp;🔹 프로젝트 및 업무 관리
-
+<br><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 프로젝트 생성 및 관리</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 업무(Task) 등록 및 상태 변경 (TODO, IN_PROGRESS, DONE)</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 사용자별 업무 할당 기능</p>
 <br><br>
 &nbsp;&nbsp;&nbsp;🔹 판매 및 매출 관리
-
+<br><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 고객 및 거래처 정보 저장</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 매출 내역 기록 및 결제 상태 관리 (PENDING, PAID, CANCELLED)</p>
 <br><br>
 &nbsp;&nbsp;&nbsp;🔹 재고 및 구매 관리
-
+<br><br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 제품(상품) 등록 및 재고 현황 조회</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ 입출고 관리 및 가격 설정</p>
 <br><br><br><br>
