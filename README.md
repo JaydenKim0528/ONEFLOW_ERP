@@ -64,7 +64,7 @@ OneFlow ERP는 기업의 핵심 업무(사용자 관리, 프로젝트 관리, �
 
     📌 ERD 상세 보기: https://www.erdcloud.com/d/7rCYM5dEr6tjcv96c
 
-    ![image](https://github.com/user-attachments/assets/d679f44d-c4be-47c1-b7ce-85d124d16683)
+    ![ERD](ERD_Image.jpg)
 
 
 
