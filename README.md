@@ -9,27 +9,30 @@ OneFlow ERP는 기업의 핵심 업무(사용자 관리, 프로젝트 관리, �
 
 ✅ 백엔드 (Spring Boot)
 
--    🔹 Spring Boot 3.4.3 
--    🔹 Spring Security + JWT 인증
--    🔹 JPA (Hibernate) + MySQL
--    🔹 QueryDSL (동적 쿼리 지원)
--    🔹 Swagger (API 문서화)
-
-
+<ul>
+    <li>🔹 Spring Boot 3.4.3</li>
+    <li>🔹 Spring Security + JWT 인증</li>
+    <li>🔹 JPA (Hibernate) + MySQL</li>
+    <li>🔹 QueryDSL (동적 쿼리 지원)</li>
+    <li>🔹 Swagger (API 문서화)</li>
+</ul>
+<br><br>
 ✅ 프론트엔드 (React)
 
--    🔹 React
--    🔹 Redux (상태 관리)
--    🔹 Material UI / Tailwind CSS
--    🔹 Axios (API 통신)
-
-
+<ul>
+    <li>🔹 Redux (상태 관리)</li>
+    <li>🔹 Material UI / Tailwind CSS</li>
+    <li>🔹 Axios (API 통신)</li>
+</ul>
+<br><br>
 ✅ 데이터베이스 & 배포
 
--    🔹 MySQL (DBeaver 활용)
--    🔹 Jenkins + GitHub Actions (CI/CD 자동화)
--    🔹 AWS (EC2, S3, RDS) 배포
-
+<ul>
+    <li>🔹 MySQL (DBeaver 활용)</li>
+    <li>🔹 Jenkins + GitHub Actions (CI/CD 자동화)</li>
+    <li>🔹 AWS (EC2, S3, RDS) 배포</li>
+</ul>
+<br><br><br>
 
 
 
@@ -37,35 +40,42 @@ OneFlow ERP는 기업의 핵심 업무(사용자 관리, 프로젝트 관리, �
 
 🔹 사용자 관리 (Authentication & Authorization)
 
--    ✔ JWT 기반 로그인 및 인증
--    ✔ 관리자(Admin), 매니저(Manager), 직원(Employee) 역할(Role) 관리
--    ✔ 사용자 CRUD (등록, 조회, 수정, 삭제)
-
+<ul>
+    <li>✔ JWT 기반 로그인 및 인증</li>
+    <li>✔ 관리자(Admin), 매니저(Manager), 직원(Employee) 역할(Role) 관리</li>
+    <li>✔ 사용자 CRUD (등록, 조회, 수정, 삭제)</li>
+</ul>
+<br><br>
 🔹 프로젝트 및 업무 관리
 
--    ✔ 프로젝트 생성 및 관리
--    ✔ 업무(Task) 등록 및 상태 변경 (TODO, IN_PROGRESS, DONE)
--    ✔ 사용자별 업무 할당 기능
-
+<ul>
+    <li>✔ 프로젝트 생성 및 관리</li>
+    <li>✔ 업무(Task) 등록 및 상태 변경 (TODO, IN_PROGRESS, DONE)</li>
+    <li>✔ 사용자별 업무 할당 기능</li>
+</ul>
+<br><br>
 🔹 판매 및 매출 관리
 
--    ✔ 고객 및 거래처 정보 저장
--    ✔ 매출 내역 기록 및 결제 상태 관리 (PENDING, PAID, CANCELLED)
-
+<ul>
+    <li>✔ 고객 및 거래처 정보 저장</li>
+    <li>✔ 매출 내역 기록 및 결제 상태 관리 (PENDING, PAID, CANCELLED)</li>
+</ul>
+<br><br>
 🔹 재고 및 구매 관리
 
--    ✔ 제품(상품) 등록 및 재고 현황 조회
--    ✔ 입출고 관리 및 가격 설정
-
-
+<ul>
+    <li>✔ 제품(상품) 등록 및 재고 현황 조회</li>
+    <li>✔ 입출고 관리 및 가격 설정</li>
+</ui>
+<br><br><br><br>
 
 
 🗂 데이터베이스 구조 (ERD)
 
--    📌 ERD 상세 보기: https://www.erdcloud.com/d/7rCYM5dEr6tjcv96c
-
--    <img width="1680" alt="ERD Structural Chart" src="https://github.com/JaydenKim0528/ONEFLOW_ERP/blob/master/ERD_Image.jpg">
-
+<ul>
+  <li>📌 ERD 상세 보기: https://www.erdcloud.com/d/7rCYM5dEr6tjcv96c</li>
+  <li><img width="1680" alt="ERD Structural Chart" src="https://github.com/JaydenKim0528/ONEFLOW_ERP/blob/master/ERD_Image.jpg"></li>
+</ul>
 
 
 
