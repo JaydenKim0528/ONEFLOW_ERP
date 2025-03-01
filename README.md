@@ -56,3 +56,16 @@ OneFlow ERP는 기업의 핵심 업무(사용자 관리, 프로젝트 관리, �
 
     ✔ 제품(상품) 등록 및 재고 현황 조회
     ✔ 입출고 관리 및 가격 설정
+
+
+
+
+🗂 데이터베이스 구조 (ERD)
+
+    📌 ERD 상세 보기: https://www.erdcloud.com/d/7rCYM5dEr6tjcv96c
+
+    ![image](https://github.com/user-attachments/assets/d679f44d-c4be-47c1-b7ce-85d124d16683)
+
+
+
+
