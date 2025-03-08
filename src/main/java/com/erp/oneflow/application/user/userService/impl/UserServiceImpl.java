@@ -6,6 +6,7 @@ import com.erp.oneflow.domain.user.userModel.UserInfo;
 import com.erp.oneflow.infrastructure.repository.UserRepository;
 import com.erp.oneflow.infrastructure.util.JwtUtil;
 import com.erp.oneflow.presentation.user.dto.login.UserLoginRes;
+import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -96,15 +97,50 @@ public class UserServiceImpl implements UserService {
         }
 
         log.info("로그인 성공: userId={}", found.getUserId());
-        String token = jwtUtil.generateToken(found.getUserNo(), found.getUserId(), found.getUserName(), found.getUserRole()); // 🔹 변경된 호출 방식
+        String token = jwtUtil.generateToken(found.getUserNo(), found.getUserId(), found.getUserName(), found.getUserEmail(), found.getCompany(), found.getUserDepartment(), found.getUserPosition(), found.getUserRole());
 
         return UserLoginRes.builder()
                 .userNo(found.getUserNo())
                 .userId(found.getUserId())
                 .userName(found.getUserName())
+                .userEmail(found.getUserEmail())
+                .company(found.getCompany())
+                .userDepartment(found.getUserDepartment())
+                .userPosition(found.getUserPosition())
                 .userRole(found.getUserRole())
                 .token(token)
                 .build();
+    }
+
+    /**
+     * [Profile] 사용자 이미지 요청
+     *
+     * @param token
+     * @return
+     */
+    @Override
+    public String getUserProfileImage(String token) {
+        log.info("사용자 이미지 요청");
+
+        Claims claims = jwtUtil.parseToken(token);
+        String userId = claims.get("userId", String.class);
+
+        log.info("✅ 추출된 userId: {}", userId);
+
+        UserEntity entity = userRepository.findByUserId(userId)
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
+
+        String imagePath = entity.getUserImagePath();
+        String imageName = entity.getUserImageName();
+
+        log.info("imageName: {}", imageName);
+        log.info("imagePath: {}", imagePath);
+
+        if (imagePath != null && imageName != null) {
+            return "/static/userImage/" + imageName;
+        }
+
+        return "/static/userImage/default-profile.png";
     }
 
     /**

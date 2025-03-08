@@ -13,6 +13,8 @@ public interface UserService {
 
     UserLoginRes userLogin(final UserInfo userInfo);
 
+    String getUserProfileImage(String token);
+
     Map<String, Object> validateUser(String token);
 
 }

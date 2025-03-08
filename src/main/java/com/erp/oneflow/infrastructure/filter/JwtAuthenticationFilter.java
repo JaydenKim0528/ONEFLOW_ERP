@@ -1,12 +1,16 @@
 package com.erp.oneflow.infrastructure.filter;
 
 import com.erp.oneflow.infrastructure.util.JwtUtil;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
@@ -29,22 +33,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String token = resolveToken(request);
 
-        if (token != null && JwtUtil.validateToken(token)) {
-            // 사용자 ID와 역할 정보를 가져옴
-            Map<String, ?> userInfo = JwtUtil.getUserInfoFromToken(token);
-            Long userNo = (Long)userInfo.get("userNo");
-            String userId = (String)userInfo.get("userId");
-            String role = (String)userInfo.get("role");
+        if (token != null && jwtUtil.validateToken(token)) {
+            Map<String, ?> userInfo = jwtUtil.getUserInfoFromToken(token);
 
-            // 역할(Role)을 포함한 권한 설정
-            List<GrantedAuthority> authorities = role != null
-                    ? List.of(new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()))
-                    : List.of();
+            if (userInfo != null && !userInfo.isEmpty()) {
+                Long userNo = (Long) userInfo.get("userNo");
+                String userId = (String) userInfo.get("userId");
+                String role = (String) userInfo.get("role");
 
-            // 인증 객체 생성 및 SecurityContext 설정
-            UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(userId, null, authorities);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                List<GrantedAuthority> authorities = role != null
+                        ? List.of(new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()))
+                        : List.of();
+
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(userId, null, authorities);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
 
         filterChain.doFilter(request, response);
@@ -52,15 +56,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private String resolveToken(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("token".equals(cookie.getName())) {
-                    return cookie.getValue();
-                }
+        if (cookies == null) {
+            return null;
+        }
+
+        for (Cookie cookie : cookies) {
+            if ("token".equals(cookie.getName())) {
+                return cookie.getValue();
             }
         }
+
         return null;
     }
-
-
 }
